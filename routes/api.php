@@ -14,13 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
- 
-
-
-// Route::middleware(['throttle:global'])->group(function () {
-Route::get('articles', [ArticleController::class, 'list'])->name('articles');
-Route::get('articles/{id}', [ArticleController::class, 'getById'])->name('article');
-Route::get('articles/{id}/like', [ArticleController::class, 'likes'])->name('likes');
-Route::get('articles/{id}/comment', [ArticleController::class, 'comments'])->name('comments');
-Route::get('articles/{id}/view', [ArticleController::class, 'views'])->name('views');
-// });
+Route::middleware(['throttle:global'])->group(function () {
+    Route::get('articles', [ArticleController::class, 'list'])->name('articles');
+    Route::get('articles/{id}', [ArticleController::class, 'getById'])->name('article');
+    Route::get('articles/{id}/like', [ArticleController::class, 'likes'])->name('likes');
+    Route::get('articles/{id}/comment', [ArticleController::class, 'comments'])->name('comments');
+    Route::get('articles/{id}/view', [ArticleController::class, 'views'])->name('views');
+});
